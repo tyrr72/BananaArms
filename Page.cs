@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BananaOS;
@@ -29,7 +29,7 @@ namespace BananaOSLongarms
 
         public override void OnPostModSetup()
         {
-            selectionHandler.maxIndex = 2;
+            selectionHandler.maxIndex = 3;
         }
 
 
@@ -56,12 +56,12 @@ namespace BananaOSLongarms
             {
                 str.AppendLine("<color=red></color> Banana Arms \n\n <color=red></color>");
                 str.AppendLine("<color=yellow></color> Use left and right to change length. <color=yellow></color>");
-                str.AppendLine("<color=yellow></color> Arm Length: \n " + armLength.ToString() + "<color=yellow> </color>");
                 str.AppendLines(1);
                 str.AppendLine(selectionHandler.GetOriginalBananaOSSelectionText(0, "Enable Banana Arms"));
                 str.AppendLine(selectionHandler.GetOriginalBananaOSSelectionText(1, "Disable Banana Arms"));
-                str.AppendLine("<color=green></color>\n\n              -----Settings-----\n <color=green></color>");
+                str.AppendLine("<color=green></color>\n              -----Settings-----\n <color=green></color>");
                 str.AppendLine(selectionHandler.GetOriginalBananaOSSelectionText(2, "Long Arm Type: " + longArmTypeName));
+                str.AppendLine(selectionHandler.GetOriginalBananaOSSelectionText(3, $"Long Arm Length: {armLength}"));
 
 
             }
@@ -85,6 +85,10 @@ namespace BananaOSLongarms
                     longArmTypeIndex = 0;
                 }
             }
+            if (index == 3)
+            {
+                armLength += 0.1f;
+            }
         }
         public void onLeft()
         {
@@ -99,6 +103,11 @@ namespace BananaOSLongarms
                 {
                     longArmTypeIndex = maxLongArmTypeIndex;
                 }
+
+            }
+            if (index == 3)
+            {
+                armLength += -0.1f;
             }
         }
         public void multarm()
