@@ -20,8 +20,8 @@ namespace BananaOSLongarms
         public string longArmTypeName = "Steam Long Arms";
         public int longArmTypeIndex = 0;
         public int maxLongArmTypeIndex = 2;
-        public bool multiArms = false;
-        public bool vertArms = false;
+        public static bool multiArms = false;
+        public static bool vertArms = false;
 
         // Huskys Stupid Shit.
         public override string Title => "<color=blue>==</color> Banana Arms <color=blue>==</color>";
@@ -134,6 +134,7 @@ namespace BananaOSLongarms
             {
                 vertarm();
             }
+
         }
         public override void OnButtonPressed(WatchButtonType buttonType)
         {
